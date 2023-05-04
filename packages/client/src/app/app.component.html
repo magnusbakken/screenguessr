@@ -1,13 +1,22 @@
-<screenguessr-generator (seedGenerated)="onSeedGenerated($event)"></screenguessr-generator>
-<div class="game-container" *ngIf="currentImageData !== null">
-    <div class="main-game-view">
-        <screenguessr-image [imageUrl]="currentImageData.url"></screenguessr-image>
-        <screenguessr-map [currentResult]="currentResult" (markerPlaced)="onMarkerPlaced($event)"></screenguessr-map>
+<header>
+    <h1>Screenguessr</h1>
+</header>
+<main>
+    <div class="game-container" *ngIf="currentImageData !== null">
+        <div class="main-game-view">
+            <screenguessr-image [imageUrl]="currentImageData.url"></screenguessr-image>
+            <div class="map-guess-container">
+                <screenguessr-map [currentResult]="currentResult" (markerPlaced)="onMarkerPlaced($event)"></screenguessr-map>
+                <div class="guess-container">
+                    <screenguessr-guess [imageData]="currentImageData" [marker]="currentMarker" (guessed)="onGuessed($event)"></screenguessr-guess>
+                </div>
+            </div>
+        </div>
+        <div class="result-container" *ngIf="currentResult !== null">
+            <screenguessr-result [result]="currentResult"></screenguessr-result>
+        </div>
     </div>
-    <div class="guess-container">
-        <screenguessr-guess [imageData]="currentImageData" [marker]="currentMarker" (guessed)="onGuessed($event)"></screenguessr-guess>
-    </div>
-    <div class="result-container" *ngIf="currentResult !== null">
-        <screenguessr-result [result]="currentResult"></screenguessr-result>
-    </div>
-</div>
+</main>
+<footer>
+    <screenguessr-generator (seedGenerated)="onSeedGenerated($event)"></screenguessr-generator>
+</footer>

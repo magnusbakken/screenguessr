@@ -1,1 +1,1 @@
-<button (click)="onGuess()">Guess!</button>
+<button [disabled]="marker === null" (click)="onGuess()" class="guess-button">Guess!</button>
