@@ -1,1 +1,3 @@
-<google-map [height]="1000" [width]="1000" [center]="{ lat: 64, lng: 18 }" [zoom]="5.27"></google-map>
+<google-map [height]="500" [width]="1000" [center]="{ lat: 64, lng: 18 }" [zoom]="5.27" [options]="options" (mapClick)="placeMarker($event)">
+    <map-marker [position]="{ lat: marker.latitude, lng: marker.longitude }" *ngIf="marker"></map-marker>
+</google-map>
