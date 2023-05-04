@@ -10,10 +10,10 @@
                 <div class="guess-container">
                     <screenguessr-guess [imageData]="currentImageData" [marker]="currentMarker" (guessed)="onGuessed($event)"></screenguessr-guess>
                 </div>
+                <div class="result-container" *ngIf="currentResult !== null">
+                    <screenguessr-result [result]="currentResult"></screenguessr-result>
+                </div>
             </div>
-        </div>
-        <div class="result-container" *ngIf="currentResult !== null">
-            <screenguessr-result [result]="currentResult"></screenguessr-result>
         </div>
     </div>
 </main>
