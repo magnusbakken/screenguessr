@@ -2,7 +2,7 @@
 <div class="game-container" *ngIf="currentImageData !== null">
     <div class="main-game-view">
         <screenguessr-image [imageUrl]="currentImageData.url"></screenguessr-image>
-        <screenguessr-map (markerPlaced)="onMarkerPlaced($event)"></screenguessr-map>
+        <screenguessr-map [currentResult]="currentResult" (markerPlaced)="onMarkerPlaced($event)"></screenguessr-map>
     </div>
     <div class="guess-container">
         <screenguessr-guess [imageData]="currentImageData" [marker]="currentMarker" (guessed)="onGuessed($event)"></screenguessr-guess>

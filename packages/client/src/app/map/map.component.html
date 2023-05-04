@@ -1,3 +1,14 @@
-<google-map [height]="500" [width]="1000" [center]="{ lat: 64, lng: 18 }" [zoom]="5.27" [options]="options" (mapClick)="placeMarker($event)">
-    <map-marker [position]="{ lat: marker.latitude, lng: marker.longitude }" *ngIf="marker"></map-marker>
+<google-map [height]="500" [width]="500" [center]="center" [zoom]="zoom" [options]="options" (mapClick)="placeMarker($event)">
+    <map-marker [position]="{ lat: marker.latitude, lng: marker.longitude }" *ngIf="marker !== null">
+    </map-marker>
+    <map-marker
+        [position]="{ lat: currentResult.actual.latitude, lng: currentResult.actual.longitude }"
+        [options]="{ draggable: false }"
+        *ngIf="currentResult !== null">
+    </map-marker>
+    <map-polyline
+        [path]="[{ lat: marker.latitude, lng: marker.longitude }, { lat: currentResult.actual.latitude, lng: currentResult.actual.longitude }]"
+        [options]="{ geodesic: true, strokeColor: 'red' }"
+        *ngIf="marker !== null && currentResult !== null">
+    </map-polyline>
 </google-map>
