@@ -1,13 +1,18 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param, Post, Res } from '@nestjs/common';
 
 import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  public constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getRandomImage() {
+  @Post('seeds')
+  public generateSeed() {
     return this.appService.getRandomImage();
+  }
+  
+  @Get('images/:image')
+  public getImage(@Param('image') image: string, @Res() res) {
+    return res.sendFile(image, { root: 'packages/server/public/images' });
   }
 }

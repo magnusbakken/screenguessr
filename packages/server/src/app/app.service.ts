@@ -7,7 +7,7 @@ import path from 'path';
 
 @Injectable()
 export class AppService {
-  getRandomImage(): ImageData {
+  public getRandomImage(): ImageData {
     const idx = randomInt(images.images.length);
     const image = images.images[idx];
     return {
@@ -19,5 +19,5 @@ export class AppService {
 }
 
 function createUrl(filePath: string): string {
-  return '/' + path.basename(filePath);
+  return '/api/images/' + path.basename(filePath);
 }

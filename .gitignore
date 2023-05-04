@@ -41,4 +41,4 @@ Thumbs.db
 .angular
 
 # Ignore images
-packages/server/src/assets/images
+packages/server/public/images

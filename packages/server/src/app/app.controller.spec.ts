@@ -13,10 +13,10 @@ describe('AppController', () => {
     }).compile();
   });
 
-  describe('getData', () => {
+  describe('generateSeed', () => {
     it('should return something', () => {
       const appController = app.get<AppController>(AppController);
-      expect(appController.getRandomImage()).toBeTruthy();
+      expect(appController.generateSeed()).toBeTruthy();
     });
   });
 });
