@@ -6,7 +6,7 @@
         <div class="main-game-view">
             <screenguessr-image [imageUrl]="currentImageData.url"></screenguessr-image>
             <div class="map-guess-container">
-                <screenguessr-map [currentResult]="currentResult" (markerPlaced)="onMarkerPlaced($event)"></screenguessr-map>
+                <screenguessr-map [currentMarker]="currentMarker" [currentResult]="currentResult" (markerPlaced)="onMarkerPlaced($event)"></screenguessr-map>
                 <div class="guess-container">
                     <screenguessr-guess [imageData]="currentImageData" [marker]="currentMarker" (guessed)="onGuessed($event)"></screenguessr-guess>
                 </div>
