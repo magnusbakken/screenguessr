@@ -39,3 +39,6 @@ testem.log
 Thumbs.db
 
 .angular
+
+# Ignore images
+packages/server/src/assets/images
