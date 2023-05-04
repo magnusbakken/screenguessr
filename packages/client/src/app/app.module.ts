@@ -5,25 +5,22 @@ import { BrowserModule } from '@angular/platform-browser';
 import { GoogleMapsModule } from '@angular/google-maps';
 
 import { AppComponent } from './app.component';
-import { NxWelcomeComponent } from './nx-welcome.component';
 import { MapComponent } from './map/map.component';
 import { ImageComponent } from './image/image.component';
 import { GeneratorComponent } from './generator/generator.component';
+import { GuessComponent } from './guess/guess.component';
+import { ResultComponent } from './result/result.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NxWelcomeComponent,
     MapComponent,
     ImageComponent,
     GeneratorComponent,
+    GuessComponent,
+    ResultComponent,
   ],
-  imports: [
-    CommonModule,
-    BrowserModule,
-    HttpClientModule,
-    GoogleMapsModule,
-  ],
+  imports: [CommonModule, BrowserModule, HttpClientModule, GoogleMapsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

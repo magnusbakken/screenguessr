@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { Marker } from './types';
+import { Coordinates } from '@screenguessr/api-types';
 
 @Component({
   selector: 'screenguessr-map',
@@ -7,7 +7,7 @@ import { Marker } from './types';
   styleUrls: ['./map.component.scss'],
 })
 export class MapComponent {
-  @Output() public readonly markerPlaced = new EventEmitter<Marker>();
+  @Output() public readonly markerPlaced = new EventEmitter<Coordinates>();
 
   public readonly options: google.maps.MapOptions = {
     draggableCursor: 'crosshair',
@@ -17,7 +17,7 @@ export class MapComponent {
     streetViewControl: false
   };
 
-  public marker: Marker | null = null;
+  public marker: Coordinates | null = null;
 
   public placeMarker(event: google.maps.MapMouseEvent | google.maps.IconMouseEvent): void {
     if (event.latLng !== null) {

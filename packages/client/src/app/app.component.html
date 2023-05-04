@@ -1,5 +1,13 @@
 <screenguessr-generator (seedGenerated)="onSeedGenerated($event)"></screenguessr-generator>
 <div class="game-container" *ngIf="currentImageData !== null">
-    <screenguessr-image [imageUrl]="currentImageData.url"></screenguessr-image>
-    <screenguessr-map></screenguessr-map>
+    <div class="main-game-view">
+        <screenguessr-image [imageUrl]="currentImageData.url"></screenguessr-image>
+        <screenguessr-map (markerPlaced)="onMarkerPlaced($event)"></screenguessr-map>
+    </div>
+    <div class="guess-container">
+        <screenguessr-guess [imageData]="currentImageData" [marker]="currentMarker" (guessed)="onGuessed($event)"></screenguessr-guess>
+    </div>
+    <div class="result-container" *ngIf="currentResult !== null">
+        <screenguessr-result [result]="currentResult"></screenguessr-result>
+    </div>
 </div>
