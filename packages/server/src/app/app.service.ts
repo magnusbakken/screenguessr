@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { randomInt } from 'crypto';
+import { ImageData } from '@screenguessr/api-types';
 
-import { ImageData } from './types';
 import images from '../db/images.json';
 import path from 'path';
 

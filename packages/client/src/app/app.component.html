@@ -1,1 +1,5 @@
-<screenguessr-map></screenguessr-map>
+<screenguessr-generator (seedGenerated)="onSeedGenerated($event)"></screenguessr-generator>
+<div class="game-container" *ngIf="currentImageData !== null">
+    <screenguessr-image [imageUrl]="currentImageData.url"></screenguessr-image>
+    <screenguessr-map></screenguessr-map>
+</div>

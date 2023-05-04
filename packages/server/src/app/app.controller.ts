@@ -1,4 +1,5 @@
 import { Controller, Get, Param, Post, Res } from '@nestjs/common';
+import { ImageData } from '@screenguessr/api-types';
 
 import { AppService } from './app.service';
 
@@ -7,7 +8,7 @@ export class AppController {
   public constructor(private readonly appService: AppService) {}
 
   @Post('seeds')
-  public generateSeed() {
+  public generateSeed(): ImageData {
     return this.appService.getRandomImage();
   }
   
