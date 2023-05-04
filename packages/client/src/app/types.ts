@@ -6,4 +6,5 @@ export interface GuessResult {
     midpoint: Coordinates;
     distance: number;
     points: number;
+    filePath: string;
 }

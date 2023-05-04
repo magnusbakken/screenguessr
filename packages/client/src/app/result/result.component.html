@@ -1,5 +1,6 @@
 <div class="result-container" *ngIf="result !== null">
     Your guess: {{result.guessed.latitude}}, {{result.guessed.longitude}}<br>
     Actual location: {{result.actual.latitude}}, {{result.actual.longitude}}<br>
-    Distance: {{result.points}}
+    Distance: {{result.points}}<br>
+    File: {{result.filePath}}<br>
 </div>

@@ -13,7 +13,8 @@ export class GuessService {
       guessed: marker,
       midpoint: calculateMidpoint(imageData.coordinates, marker),
       distance,
-      points: calculatePoints(distance)
+      points: calculatePoints(distance),
+      filePath: imageData.fileName,
     };
   }
 }
