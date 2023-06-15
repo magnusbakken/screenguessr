@@ -19,5 +19,5 @@ export class AppService {
 }
 
 function createUrl(filePath: string): string {
-  return '/api/images/' + path.basename(filePath);
+  return 'https://storage.cloud.google.com/screenguessr/' + path.basename(filePath);
 }
