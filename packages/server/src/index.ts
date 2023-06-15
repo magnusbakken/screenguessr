@@ -1,7 +1,10 @@
-import { initializeApp } from 'firebase-admin/app';
+import { AppOptions, initializeApp } from 'firebase-admin/app';
 
 export * from './app/functions';
 
-initializeApp({
-    projectId: 'screenguessr'
-});
+const options: AppOptions = {
+  projectId: 'screenguessr',
+  storageBucket: 'screenguessr.appspot.com',
+};
+
+initializeApp(options);

@@ -6,17 +6,26 @@ import { ImageData } from '@screenguessr/api-types';
 import images from '../db/images.json';
 import path from 'path';
 
-export const generateSeed = onRequest((_, response: express.Response<ImageData>) => {
-  const idx = randomInt(images.images.length);
-  const image = images.images[idx];
-  const imageData: ImageData = {
-    fileName: image.original_path,
-    coordinates: image.coordinates,
-    url: createUrl(image.path)
-  };
+export const generateSeed = onRequest(
+  { cors: true, region: 'europe-west3' },
+  (request: express.Request, response: express.Response<ImageData | string>) => {
+    if (request.method !== 'POST') {
+      response.status(405);
+      response.send(`HTTP Method ${request.method} Not Allowed`);
+      return;
+    };
 
-  response.send(imageData);
-});
+    const idx = randomInt(images.images.length);
+    const image = images.images[idx];
+    const imageData: ImageData = {
+      fileName: image.original_path,
+      coordinates: image.coordinates,
+      url: createUrl(image.path)
+    };
+
+    response.send(imageData);
+  }
+);
 
 function createUrl(filePath: string): string {
   return 'https://storage.cloud.google.com/screenguessr/' + path.basename(filePath);
