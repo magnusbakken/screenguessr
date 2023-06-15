@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "screenguessr"
+  },
+  "targets": {
+    "screenguessr": {
+      "hosting": {
+        "client": [
+          "screenguessr"
+        ]
+      }
+    }
   }
 }

@@ -1,15 +1,16 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { FirebaseApp } from '@angular/fire/app';
+import { getFunctions, httpsCallable } from '@angular/fire/functions';
 import { ImageData } from '@screenguessr/api-types';
-import { firstValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SeedGeneratorService {
-  public constructor(private readonly http: HttpClient) { }
+  public constructor(private readonly app: FirebaseApp) { }
 
-  public generateSeed(): Promise<ImageData> {
-    return firstValueFrom(this.http.post<ImageData>('http://localhost:3000/api/seeds', {}));
+  public async generateSeed(): Promise<ImageData> {
+    const result = await httpsCallable<unknown, ImageData>(getFunctions(this.app), 'generateSeed')();
+    return result.data;
   }
 }
