@@ -1,5 +1,16 @@
 {
   "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "isolatedModules": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true
+  },
   "files": [],
   "include": [],
   "references": [
@@ -8,10 +19,9 @@
     },
     {
       "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./tsconfig.editor.json"
     }
-  ],
-  "compilerOptions": {
-    "esModuleInterop": true,
-    "resolveJsonModule": true
-  }
+  ]
 }

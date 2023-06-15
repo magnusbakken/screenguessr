@@ -1,0 +1,10 @@
+{
+    "name": "@screenguessr/server",
+    "engines": {
+      "node": "18"
+    },
+    "type": "module",
+    "main": "index.js",
+    "module": "index.js",
+    "private": true
+}

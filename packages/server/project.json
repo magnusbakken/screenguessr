@@ -5,39 +5,21 @@
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nx/webpack:webpack",
+      "executor": "@nx/esbuild:esbuild",
       "outputs": ["{options.outputPath}"],
-      "defaultConfiguration": "production",
       "options": {
-        "target": "node",
-        "compiler": "tsc",
         "outputPath": "dist/packages/server",
-        "main": "packages/server/src/main.ts",
+        "main": "packages/server/src/index.ts",
         "tsConfig": "packages/server/tsconfig.app.json",
-        "assets": ["packages/server/src/assets"],
-        "isolatedConfig": true,
-        "webpackConfig": "packages/server/webpack.config.js"
-      },
-      "configurations": {
-        "development": {},
-        "production": {}
+        "target": "es2022",
+        "skipTypeCheck": false,
+        "generatePackageJson": true,
+        "thirdParty": false
       }
     },
     "serve": {
-      "executor": "@nx/js:node",
-      "defaultConfiguration": "development",
-      "options": {
-        "buildTarget": "server:build",
-        "watch": true
-      },
-      "configurations": {
-        "development": {
-          "buildTarget": "server:build:development"
-        },
-        "production": {
-          "buildTarget": "server:build:production"
-        }
-      }
+      "command": "firebase emulators:start --project=server --only auth,firestore,functions --import=.emulator-data",
+      "dependsOn": ["build"]
     },
     "lint": {
       "executor": "@nx/linter:eslint",
