@@ -40,10 +40,6 @@ Thumbs.db
 
 .angular
 
-# Ignore images and DB
-packages/server/public/images
-packages/server/src/db/images.json
-
 # Logs
 logs
 *.log
