@@ -20,5 +20,5 @@ export const generateSeed = onCall<unknown, ImageData>(Options, () => {
 });
 
 function createUrl(filePath: string): string {
-  return 'https://storage.cloud.google.com/screenguessr/' + path.basename(filePath);
+  return 'https://firebasestorage.googleapis.com/v0/b/screenguessr/o/' + path.basename(filePath) + '?alt=media';
 }
